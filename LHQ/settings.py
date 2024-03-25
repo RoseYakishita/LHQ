@@ -15,9 +15,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.up.railway.app', 'localhost', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [
-    'http://127.0.0.1:8000/',
-    'https://lhq-env.up.railway.app/en/',
-    'http://*lhq-env.up.railway.app'
+    'http://*.up.railway.app',
 ]
 SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_DOMAIN = None
@@ -46,7 +44,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     # 'django.middleware.csrf.CsrfResponseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
