@@ -17,7 +17,7 @@ ALLOWED_HOSTS = ['.up.railway.app', 'localhost', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000/',
     'https://lhq-env.up.railway.app/en/',
-    'http://...'
+    'http://*lhq-env.up.railway.app'
 ]
 SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_DOMAIN = None
