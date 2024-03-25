@@ -15,11 +15,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.up.railway.app', 'localhost', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [
-    'http://*.up.railway.app',
+    'https://*.up.railway.app',
 ]
 SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_DOMAIN = None
-SECURE_PROXY_SSL_HEADER = ('https')
+
 # Application definition
 
 INSTALLED_APPS = [
