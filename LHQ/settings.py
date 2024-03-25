@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-o!59wg9%x@2+%8qt(o=%8xr0sq*d0rsut+bft5&h5lv-^+u#z+
 DEBUG = True
 
 ALLOWED_HOSTS = ['lhq-env.up.railway.app', 'localhost']
-CSRF_TRUSTED_ORIGINS = ['lhq-env.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['lhq-env.up.railway.app', 'https://lhq-env.up.railway.app/en/']
 # Application definition
 
 INSTALLED_APPS = [
