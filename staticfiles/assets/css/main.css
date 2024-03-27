@@ -4079,6 +4079,8 @@ table .product-thumbnail img {
     overflow: hidden;
     max-height: 320px;
     padding: 25px 25px 0 25px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .product-cart-wrap .product-img-action-wrap .product-action-1 {
@@ -4319,6 +4321,10 @@ table .product-thumbnail img {
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 5px;
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .product-cart-wrap .product-content-wrap h2 a {
@@ -10713,7 +10719,7 @@ footer .hotline img {
 }
 
 /***************************
-    Page section margin 
+    Page section margin
 ****************************/
 
 .mtb-0 {
