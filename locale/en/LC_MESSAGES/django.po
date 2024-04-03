@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-03 15:20+0700\n"
+"POT-Creation-Date: 2024-04-03 16:05+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,6 +24,10 @@ msgstr ""
 
 #: .\templates\partials\base.html:150
 msgid "English"
+msgstr ""
+
+#: .\templates\partials\base.html:227
+msgid "Cart"
 msgstr ""
 
 #: .\templates\partials\base.html:346
@@ -52,8 +56,4 @@ msgstr ""
 
 #: .\templates\partials\base.html:392
 msgid "Support Center"
-msgstr ""
-
-#: .\templates\partials\base.html:490
-msgid "Search for items…"
 msgstr ""

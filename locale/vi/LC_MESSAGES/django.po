@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-03 15:20+0700\n"
+"POT-Creation-Date: 2024-04-03 16:05+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,15 +20,19 @@ msgstr ""
 
 #: .\templates\partials\base.html:147
 msgid "Vietnamese"
-msgstr "Tiếng việt"
+msgstr "Tếng Việt"
 
 #: .\templates\partials\base.html:150
 msgid "English"
-msgstr ""
+msgstr "Tiếng Anh"
+
+#: .\templates\partials\base.html:227
+msgid "Cart"
+msgstr "Giỏ hàng"
 
 #: .\templates\partials\base.html:346
 msgid "Home"
-msgstr ""
+msgstr "Trang chủ"
 
 #: .\templates\partials\base.html:349
 msgid "Category"
@@ -53,7 +57,3 @@ msgstr "Liên hệ"
 #: .\templates\partials\base.html:392
 msgid "Support Center"
 msgstr "Trung tâm hỗ trợ"
-
-#: .\templates\partials\base.html:490
-msgid "Search for items…"
-msgstr "Tìm kiếm sản phẩm..."

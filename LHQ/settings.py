@@ -110,13 +110,14 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en'
 TIME_ZONE = 'UTC'
 USE_I18N = True
+USE_L10N = True
 USE_TZ = True
 LANGUAGES = [
     ('en', 'English'),
     ('vi', 'Vietnamese'),
 ]
 LOCALE_PATHS = [
-    BASE_DIR / 'D:/WEB/LHQ/locale',
+    os.path.join(BASE_DIR, 'locale'),
 ]
 
 # Static files (CSS, JavaScript, Images)

@@ -117,10 +117,10 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="header-info">
                         <ul>
-                            <li><a href="page-about.htlm">About Us</a></li>
-                            <li><a href="page-account.html">My Account</a></li>
-                            <li><a href="shop-wishlist.html">Wishlist</a></li>
-                            <li><a href="shop-order.html">Order Tracking</a></li>
+                            <li><a href="{% url 'core:about_us' %}">About Us</a></li>
+                            <li><a href="{% url 'core:dashboard' %}">My Account</a></li>
+                            <li><a href="{% url 'core:wishlist' %}">Wishlist</a></li>
+<!--                            <li><a href="shop-order.html">Order Tracking</a></li>-->
                         </ul>
                     </div>
                 </div>
@@ -224,7 +224,7 @@
                                     <img alt="Nest" src="{% static 'assets/imgs/theme/icons/icon-cart.svg' %}"/>
                                     <span class="pro-count blue cart-items-count">{{ request.session.cart_data_obj|length }}</span>
                                 </a>
-                                <a href="{% url 'core:cart' %}"><span class="lable">Cart</span></a>
+                                <a href="{% url 'core:cart' %}"><span class="lable">{% trans 'Cart' %}</span></a>
 <!--                                <div class="cart-dropdown-wrap cart-dropdown-hm2">-->
 <!--                                    <ul>-->
 <!--                                    {% for product_id, item in cart_data.items %}-->
@@ -261,10 +261,11 @@
                                          src="{% static 'assets/imgs/theme/icons/icon-user.svg' %}"/>
                                 </a>
                                 {% if request.user.is_authenticated %}
-                                <a href="page-account.html"><span
-                                        class="lable ml-0">{{request.user.username}}</span></a>
+                                <a href="{% url 'core:dashboard' %}">
+                                    <span class="lable ml-0">{{request.user.username}}</span>
+                                </a>
                                 {% else %}
-                                <a href="page-account.html"><span class="lable ml-0">Account</span></a>
+                                <a href="{% url 'userauths:sign-in' %}"><span class="lable ml-0">Account</span></a>
                                 {% endif %}
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                     <ul>
@@ -487,7 +488,7 @@
         <div class="mobile-header-content-area">
             <div class="mobile-search search-style-3 mobile-header-border">
                 <form action="#">
-                    <input type="text" placeholder="{% trans 'Search for items...' %}"/>
+                    <input type="text" placeholder="Search for items..."/>
                     <button type="submit"><i class="fi-rs-search"></i></button>
                 </form>
             </div>

@@ -7,7 +7,7 @@ from userauths.models import Profile, ContactUs
 from core.forms import ProductReviewForm
 from django.template.loader import render_to_string
 from django.contrib import messages
-
+from django.utils.translation import gettext as _
 from django.urls import reverse
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
