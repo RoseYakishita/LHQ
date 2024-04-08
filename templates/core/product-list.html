@@ -1,7 +1,6 @@
 {% extends 'partials/base.html' %}
 {% load static %}
 {% block content %}
-
     <head>
         <style>
             input[type="range"] {
@@ -65,7 +64,7 @@
                                             <li>
                                                 <input  class="form-check-input filter-checkbox" data-filter="category" type="checkbox" name="checkbox" id="exampleCheckbox2" value="{{ c.id }}" />
                                                 &nbsp;&nbsp;
-                                                <a href="{% url 'core:category-product-list' c.cid %}"> <img src="{{c.image.url}}" alt="" />{{ c.title }}</a>
+                                                <a href="{% url 'core:category-product-list' c.cid %}"> <img loading="lazy" src="{{c.image.url}}" alt="" />{{ c.title }}</a>
                                             </li>
                                         </ul>
                                         {% endfor %}
@@ -165,8 +164,8 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{% url 'core:product-detail' p.pid %}">
-                                            <img class="default-img" src="{{ p.image.url }}" alt="" style="height: 280px; width: 280px; object-fit: cover;"   />
-                                            <img class="hover-img" src="{{ p.image.url }}" alt=""  style="height: 280px; width: 280px; object-fit: cover;"  />
+                                            <img loading="lazy" class="default-img" src="{{ p.image.url }}" alt="" style="height: 280px; width: 280px; object-fit: cover;"   />
+                                            <img loading="lazy" class="hover-img" src="{{ p.image.url }}" alt=""  style="height: 280px; width: 280px; object-fit: cover;"  />
 
                                         </a>
                                     </div>
@@ -214,47 +213,47 @@
                             </div>
                         </div>
                         {% endfor %}
-
                     </div>
-<div class="pagination-area mt-20 mb-20 d-flex justify-content-center">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-start">
-            {% if page_obj.has_previous %}
-            <li class="page-item">
-                <a class="page-link" href="?page=1"><i class="fa-solid fa-angles-left"></i></a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><i class="fa-solid fa-angle-left"></i></a>
-            </li>
-            {% endif %}
-            {% for num in page_obj.paginator.page_range %}
-                {% if num == page_obj.number %}
-                    <li class="page-item active">
-                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
-                    </li>
-                {% elif num <= 3 or num >= page_obj.paginator.num_pages|add:"-2" %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
-                    </li>
-                {% elif num == 4 or num == page_obj.paginator.num_pages|add:"-3" %}
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#">...</a>
-                    </li>
-                {% endif %}
-            {% endfor %}
-            {% if page_obj.has_next %}
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.next_page_number }}"><i class="fa-solid fa-angle-right"></i></a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}"><i class="fa-solid fa-angles-right"></i></a>
-            </li>
-            {% endif %}
-        </ul>
-    </nav>
-</div>
-
-
+                    <div class="pagination-area mt-20 mb-20 d-flex justify-content-center">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-start">
+                                {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page=1"><i class="fa-solid fa-angles-left"></i></a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><i
+                                            class="fa-solid fa-angle-left"></i></a>
+                                </li>
+                                {% endif %}
+                                {% for num in page_obj.paginator.page_range %}
+                                {% if num == page_obj.number %}
+                                <li class="page-item active">
+                                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                </li>
+                                {% elif num <= 3 or num >= page_obj.paginator.num_pages|add:"-2" %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                </li>
+                                {% elif num == 4 or num == page_obj.paginator.num_pages|add:"-3" %}
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">...</a>
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+                                {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.next_page_number }}"><i
+                                            class="fa-solid fa-angle-right"></i></a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}"><i
+                                            class="fa-solid fa-angles-right"></i></a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
                     <!--product grid-->
                     <!-- <div class="pagination-area mt-20 mb-20">
                         <nav aria-label="Page navigation example">
@@ -287,7 +286,7 @@
 <!--                                    <div class="product-img-action-wrap">-->
 <!--                                        <div class="product-img">-->
 <!--                                            <a href="shop-product-right.html">-->
-<!--                                                <img src="{% static 'assets/imgs/banner/banner-5.png' %}" alt="" />-->
+<!--                                                <img loading="lazy" src="{% static 'assets/imgs/banner/banner-5.png' %}" alt="" />-->
 <!--                                            </a>-->
 <!--                                        </div>-->
 <!--                                    </div>-->
@@ -324,7 +323,7 @@
 <!--                                    <div class="product-img-action-wrap">-->
 <!--                                        <div class="product-img">-->
 <!--                                            <a href="shop-product-right.html">-->
-<!--                                                <img src="{% static 'assets/imgs/banner/banner-6.png' %}" alt="" />-->
+<!--                                                <img loading="lazy" src="{% static 'assets/imgs/banner/banner-6.png' %}" alt="" />-->
 <!--                                            </a>-->
 <!--                                        </div>-->
 <!--                                    </div>-->
@@ -361,7 +360,7 @@
 <!--                                    <div class="product-img-action-wrap">-->
 <!--                                        <div class="product-img">-->
 <!--                                            <a href="shop-product-right.html">-->
-<!--                                                <img src="{% static 'assets/imgs/banner/banner-7.png' %}" alt="" />-->
+<!--                                                <img loading="lazy" src="{% static 'assets/imgs/banner/banner-7.png' %}" alt="" />-->
 <!--                                            </a>-->
 <!--                                        </div>-->
 <!--                                    </div>-->
@@ -398,7 +397,7 @@
 <!--                                    <div class="product-img-action-wrap">-->
 <!--                                        <div class="product-img">-->
 <!--                                            <a href="shop-product-right.html">-->
-<!--                                                <img src="{% static 'assets/imgs/banner/banner-8.png' %}" alt="" />-->
+<!--                                                <img loading="lazy" src="{% static 'assets/imgs/banner/banner-8.png' %}" alt="" />-->
 <!--                                            </a>-->
 <!--                                        </div>-->
 <!--                                    </div>-->
@@ -437,5 +436,4 @@
             </div>
         </div>
     </main>
-
 {% endblock content %}

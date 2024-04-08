@@ -53,8 +53,8 @@
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
                                                     <a href="{% url 'core:product-detail' p.pid %}">
-                                                        <img class="default-img" src="{{ p.image.url }}" alt="" style="height: 280px; width: 280px; object-fit: cover;"   />
-                                                        <img class="hover-img" src="{{ p.image.url }}" alt=""  style="height: 280px; width: 280px; object-fit: cover;"  />
+                                                        <img loading="lazy" class="default-img" src="{{ p.image.url }}" alt="" style="height: 280px; width: 280px; object-fit: cover;"   />
+                                                        <img loading="lazy" class="hover-img" src="{{ p.image.url }}" alt=""  style="height: 280px; width: 280px; object-fit: cover;"  />
                                                     </a>
                                                 </div>
                                                 <div class="product-action-1">
@@ -125,7 +125,7 @@
 <!--                                    <div class="product-img-action-wrap">-->
 <!--                                        <div class="product-img">-->
 <!--                                            <a href="shop-product-right.html">-->
-<!--                                                <img src="{% static 'assets/imgs/banner/banner-5.png' %}" alt="" />-->
+<!--                                                <img loading="lazy" src="{% static 'assets/imgs/banner/banner-5.png' %}" alt="" />-->
 <!--                                            </a>-->
 <!--                                        </div>-->
 <!--                                    </div>-->
@@ -162,7 +162,7 @@
 <!--                                    <div class="product-img-action-wrap">-->
 <!--                                        <div class="product-img">-->
 <!--                                            <a href="shop-product-right.html">-->
-<!--                                                <img src="{% static 'assets/imgs/banner/banner-6.png' %}" alt="" />-->
+<!--                                                <img loading="lazy" src="{% static 'assets/imgs/banner/banner-6.png' %}" alt="" />-->
 <!--                                            </a>-->
 <!--                                        </div>-->
 <!--                                    </div>-->
@@ -199,7 +199,7 @@
 <!--                                    <div class="product-img-action-wrap">-->
 <!--                                        <div class="product-img">-->
 <!--                                            <a href="shop-product-right.html">-->
-<!--                                                <img src="{% static 'assets/imgs/banner/banner-7.png' %}" alt="" />-->
+<!--                                                <img loading="lazy" src="{% static 'assets/imgs/banner/banner-7.png' %}" alt="" />-->
 <!--                                            </a>-->
 <!--                                        </div>-->
 <!--                                    </div>-->
@@ -236,7 +236,7 @@
 <!--                                    <div class="product-img-action-wrap">-->
 <!--                                        <div class="product-img">-->
 <!--                                            <a href="shop-product-right.html">-->
-<!--                                                <img src="{% static 'assets/imgs/banner/banner-8.png' %}" alt="" />-->
+<!--                                                <img loading="lazy" src="{% static 'assets/imgs/banner/banner-8.png' %}" alt="" />-->
 <!--                                            </a>-->
 <!--                                        </div>-->
 <!--                                    </div>-->
@@ -275,7 +275,7 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-6">
                                 <div class="banner-img">
-                                    <img src="{% static 'assets/imgs/banner/banner-22.jpg' %}" alt="" />
+                                    <img loading="lazy" src="{% static 'assets/imgs/banner/banner-22.jpg' %}" alt="" />
                                     <div class="banner-text">
                                         <h4>
                                             {% trans 'Everyday Fresh &' %} <br />{% trans 'Clean with Our' %}<br /> {% trans 'Products' %}
@@ -286,7 +286,7 @@
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="banner-img">
-                                    <img src="{% static 'assets/imgs/banner/banner-21.jpg' %}" alt="" />
+                                    <img loading="lazy" src="{% static 'assets/imgs/banner/banner-21.jpg' %}" alt="" />
                                     <div class="banner-text">
                                         <h4>
                                             {% trans 'Make your Breakfast' %}<br /> {% trans 'Healthy and Easy' %}
@@ -297,7 +297,7 @@
                             </div>
                             <div class="col-lg-4 d-md-none d-lg-flex">
                                 <div class="banner-img mb-sm-0">
-                                    <img src="{% static 'assets/imgs/banner/banner-20.jpg' %}" alt="" />
+                                    <img loading="lazy" src="{% static 'assets/imgs/banner/banner-20.jpg' %}" alt="" />
                                     <div class="banner-text">
                                         <h4>{% trans 'The best Organic ' %}<br />{% trans 'Products Online' %}</h4>
                                         <a href="shop-grid-right.html" class="btn btn-xs">{% trans 'Shop Now' %} <i class="fi-rs-arrow-small-right"></i></a>
@@ -314,7 +314,7 @@
                         <ul>
                             {% for c in categories %}
                             <li>
-                                <a href="{% url 'core:category-product-list' c.cid %}"> <img src="{{ c.image.url }}" alt="" style="width: 30px; height: 30px; object-fit: cover; border-radius: 10px;" />{{c.title}}</a><span class="count">{{c.product_count}}</span>
+                                <a href="{% url 'core:category-product-list' c.cid %}"> <img loading="lazy" src="{{ c.image.url }}" alt="" style="width: 30px; height: 30px; object-fit: cover; border-radius: 10px;" />{{c.title}}</a><span class="count">{{c.product_count}}</span>
                             </li>
                             {% endfor %}
                         </ul>
@@ -364,7 +364,7 @@
 <!--                        <h5 class="section-title style-1 mb-30">New products</h5>-->
 <!--                        <div class="single-post clearfix">-->
 <!--                            <div class="image">-->
-<!--                                <img src="{% static 'assets/imgs/shop/thumbnail-3.jpg' %}" alt="#" />-->
+<!--                                <img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-3.jpg' %}" alt="#" />-->
 <!--                            </div>-->
 <!--                            <div class="content pt-10">-->
 <!--                                <h5><a href="shop-product-detail.html">Chen Cardigan</a></h5>-->
@@ -376,7 +376,7 @@
 <!--                        </div>-->
 <!--                        <div class="single-post clearfix">-->
 <!--                            <div class="image">-->
-<!--                                <img src="{% static 'assets/imgs/shop/thumbnail-4.jpg' %}" alt="#" />-->
+<!--                                <img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-4.jpg' %}" alt="#" />-->
 <!--                            </div>-->
 <!--                            <div class="content pt-10">-->
 <!--                                <h6><a href="shop-product-detail.html">Chen Sweater</a></h6>-->
@@ -388,7 +388,7 @@
 <!--                        </div>-->
 <!--                        <div class="single-post clearfix">-->
 <!--                            <div class="image">-->
-<!--                                <img src="{% static 'assets/imgs/shop/thumbnail-5.jpg' %}" alt="#" />-->
+<!--                                <img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-5.jpg' %}" alt="#" />-->
 <!--                            </div>-->
 <!--                            <div class="content pt-10">-->
 <!--                                <h6><a href="shop-product-detail.html">Colorful Jacket</a></h6>-->
@@ -400,7 +400,7 @@
 <!--                        </div>-->
 <!--                    </div>-->
 <!--                    <div class="banner-img wow fadeIn mb-lg-0 animated d-lg-block d-none">-->
-<!--                        <img src="{% static 'assets/imgs/banner/banner-11.png' %}" alt="" />-->
+<!--                        <img loading="lazy" src="{% static 'assets/imgs/banner/banner-11.png' %}" alt="" />-->
 <!--                        <div class="banner-text">-->
 <!--                            <span>Oganic</span>-->
 <!--                            <h4>-->
@@ -428,7 +428,7 @@
                         {% for c in categories %}
                         <div class="card-1">
                             <figure class="img-hover-scale overflow-hidden">
-                                <a href="{% url 'core:category-product-list' c.cid %}"><img src="{{ c.image.url }}" alt="" /></a>
+                                <a href="{% url 'core:category-product-list' c.cid %}"><img loading="lazy" src="{{ c.image.url }}" alt="" /></a>
                             </figure>
                             <h6>
                                 <a href="{% url 'core:category-product-list' c.cid %}">{{c.title}}</a>
@@ -448,7 +448,7 @@
 <!--                        <div class="product-list-small animated animated">-->
 <!--                            <article class="row align-items-center hover-up">-->
 <!--                                <figure class="col-md-4 mb-0">-->
-<!--                                    <a href="shop-product-right.html"><img src="{% static 'assets/imgs/shop/thumbnail-1.jpg' %}" alt="" /></a>-->
+<!--                                    <a href="shop-product-right.html"><img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-1.jpg' %}" alt="" /></a>-->
 <!--                                </figure>-->
 <!--                                <div class="col-md-8 mb-0">-->
 <!--                                    <h6>-->
@@ -468,7 +468,7 @@
 <!--                            </article>-->
 <!--                            <article class="row align-items-center hover-up">-->
 <!--                                <figure class="col-md-4 mb-0">-->
-<!--                                    <a href="shop-product-right.html"><img src="{% static 'assets/imgs/shop/thumbnail-2.jpg' %}" alt="" /></a>-->
+<!--                                    <a href="shop-product-right.html"><img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-2.jpg' %}" alt="" /></a>-->
 <!--                                </figure>-->
 <!--                                <div class="col-md-8 mb-0">-->
 <!--                                    <h6>-->
@@ -488,7 +488,7 @@
 <!--                            </article>-->
 <!--                            <article class="row align-items-center hover-up">-->
 <!--                                <figure class="col-md-4 mb-0">-->
-<!--                                    <a href="shop-product-right.html"><img src="{% static 'assets/imgs/shop/thumbnail-3.jpg' %}" alt="" /></a>-->
+<!--                                    <a href="shop-product-right.html"><img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-3.jpg' %}" alt="" /></a>-->
 <!--                                </figure>-->
 <!--                                <div class="col-md-8 mb-0">-->
 <!--                                    <h6>-->
@@ -513,7 +513,7 @@
 <!--                        <div class="product-list-small animated animated">-->
 <!--                            <article class="row align-items-center hover-up">-->
 <!--                                <figure class="col-md-4 mb-0">-->
-<!--                                    <a href="shop-product-right.html"><img src="{% static 'assets/imgs/shop/thumbnail-4.jpg' %}" alt="" /></a>-->
+<!--                                    <a href="shop-product-right.html"><img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-4.jpg' %}" alt="" /></a>-->
 <!--                                </figure>-->
 <!--                                <div class="col-md-8 mb-0">-->
 <!--                                    <h6>-->
@@ -533,7 +533,7 @@
 <!--                            </article>-->
 <!--                            <article class="row align-items-center hover-up">-->
 <!--                                <figure class="col-md-4 mb-0">-->
-<!--                                    <a href="shop-product-right.html"><img src="{% static 'assets/imgs/shop/thumbnail-5.jpg' %}" alt="" /></a>-->
+<!--                                    <a href="shop-product-right.html"><img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-5.jpg' %}" alt="" /></a>-->
 <!--                                </figure>-->
 <!--                                <div class="col-md-8 mb-0">-->
 <!--                                    <h6>-->
@@ -553,7 +553,7 @@
 <!--                            </article>-->
 <!--                            <article class="row align-items-center hover-up">-->
 <!--                                <figure class="col-md-4 mb-0">-->
-<!--                                    <a href="shop-product-right.html"><img src="{% static 'assets/imgs/shop/thumbnail-6.jpg' %}" alt="" /></a>-->
+<!--                                    <a href="shop-product-right.html"><img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-6.jpg' %}" alt="" /></a>-->
 <!--                                </figure>-->
 <!--                                <div class="col-md-8 mb-0">-->
 <!--                                    <h6>-->
@@ -578,7 +578,7 @@
 <!--                        <div class="product-list-small animated animated">-->
 <!--                            <article class="row align-items-center hover-up">-->
 <!--                                <figure class="col-md-4 mb-0">-->
-<!--                                    <a href="shop-product-right.html"><img src="{% static 'assets/imgs/shop/thumbnail-7.jpg' %}" alt="" /></a>-->
+<!--                                    <a href="shop-product-right.html"><img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-7.jpg' %}" alt="" /></a>-->
 <!--                                </figure>-->
 <!--                                <div class="col-md-8 mb-0">-->
 <!--                                    <h6>-->
@@ -598,7 +598,7 @@
 <!--                            </article>-->
 <!--                            <article class="row align-items-center hover-up">-->
 <!--                                <figure class="col-md-4 mb-0">-->
-<!--                                    <a href="shop-product-right.html"><img src="{% static 'assets/imgs/shop/thumbnail-8.jpg' %}" alt="" /></a>-->
+<!--                                    <a href="shop-product-right.html"><img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-8.jpg' %}" alt="" /></a>-->
 <!--                                </figure>-->
 <!--                                <div class="col-md-8 mb-0">-->
 <!--                                    <h6>-->
@@ -618,7 +618,7 @@
 <!--                            </article>-->
 <!--                            <article class="row align-items-center hover-up">-->
 <!--                                <figure class="col-md-4 mb-0">-->
-<!--                                    <a href="shop-product-right.html"><img src="{% static 'assets/imgs/shop/thumbnail-9.jpg' %}" alt="" /></a>-->
+<!--                                    <a href="shop-product-right.html"><img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-9.jpg' %}" alt="" /></a>-->
 <!--                                </figure>-->
 <!--                                <div class="col-md-8 mb-0">-->
 <!--                                    <h6>-->
@@ -643,7 +643,7 @@
 <!--                        <div class="product-list-small animated animated">-->
 <!--                            <article class="row align-items-center hover-up">-->
 <!--                                <figure class="col-md-4 mb-0">-->
-<!--                                    <a href="shop-product-right.html"><img src="{% static 'assets/imgs/shop/thumbnail-10.jpg' %}" alt="" /></a>-->
+<!--                                    <a href="shop-product-right.html"><img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-10.jpg' %}" alt="" /></a>-->
 <!--                                </figure>-->
 <!--                                <div class="col-md-8 mb-0">-->
 <!--                                    <h6>-->
@@ -663,7 +663,7 @@
 <!--                            </article>-->
 <!--                            <article class="row align-items-center hover-up">-->
 <!--                                <figure class="col-md-4 mb-0">-->
-<!--                                    <a href="shop-product-right.html"><img src="{% static 'assets/imgs/shop/thumbnail-11.jpg' %}" alt="" /></a>-->
+<!--                                    <a href="shop-product-right.html"><img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-11.jpg' %}" alt="" /></a>-->
 <!--                                </figure>-->
 <!--                                <div class="col-md-8 mb-0">-->
 <!--                                    <h6>-->
@@ -683,7 +683,7 @@
 <!--                            </article>-->
 <!--                            <article class="row align-items-center hover-up">-->
 <!--                                <figure class="col-md-4 mb-0">-->
-<!--                                    <a href="shop-product-right.html"><img src="{% static 'assets/imgs/shop/thumbnail-12.jpg' %}" alt="" /></a>-->
+<!--                                    <a href="shop-product-right.html"><img loading="lazy" src="{% static 'assets/imgs/shop/thumbnail-12.jpg' %}" alt="" /></a>-->
 <!--                                </figure>-->
 <!--                                <div class="col-md-8 mb-0">-->
 <!--                                    <h6>-->
