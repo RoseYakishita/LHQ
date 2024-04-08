@@ -13,7 +13,7 @@ from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from paypal.standard.forms import PayPalPaymentsForm
 from django.contrib.auth.decorators import login_required
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import calendar
 from django.db.models import Count, Avg, Q
 from django.db.models.functions import ExtractMonth
@@ -30,12 +30,24 @@ def index(request):
 
 def product_list_view(request):
     products = Product.objects.filter(product_status="published")
+    items_per_page = 10
+    page_obj = paginate_queryset(request, products, items_per_page)
     context = {
-        "products":products,
-        # "tags":tags,
+        "products": page_obj.object_list,
+        "page_obj": page_obj,
     }
     return render(request, 'core/product-list.html', context)
 
+def paginate_queryset(request, queryset, items_per_page):
+    paginator = Paginator(queryset, items_per_page)
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+    return page_obj
 
 def category_list_view(request):
     categories = Category.objects.all()
@@ -161,12 +173,23 @@ def ajax_add_review(request, pid):
 
 def search_view(request):
     query = request.GET.get("q")
-
     products = Product.objects.filter(title__icontains=query).order_by("-date")
+    items_per_page = 10
+    paginator = Paginator(products, items_per_page)
+
+    # Lấy số trang từ tham số truy vấn (nếu có), mặc định là 1
+    page_number = request.GET.get('page', 1)
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
 
     context = {
-        "products": products,
+        "products": page_obj.object_list,
         "query": query,
+        "page_obj": page_obj,
     }
     return render(request, "core/search.html", context)
 

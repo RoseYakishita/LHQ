@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'taggit',
     'django_ckeditor_5',
     'paypal.standard.ipn',
+    'django.core.paginator'
 
 ]
 

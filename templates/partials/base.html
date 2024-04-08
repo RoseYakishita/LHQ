@@ -63,7 +63,7 @@
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="detail-info pr-30 pl-30">
                             <span class="stock-status out-stock">Sale off</span>
-                            <h3 class="title-detail"><a href="shop-product-right.html" class="text-heading">{{ p.title }}</a></h3>
+                            <h3 class="title-detail"><a href="{% url 'core:product-detail' p.pid %}" class="text-heading">{{ p.title }}</a></h3>
                             <div class="product-detail-rating">
                                 <div class="product-rate-cover text-end">
                                     <div class="product-rate d-inline-block">
@@ -660,9 +660,9 @@
                     <div class="position-relative newsletter-inner">
                         <div class="newsletter-content">
                             <h2 class="mb-20">
-                                Stay home & get your daily <br/> needs from our shop
+                                {% trans 'Stay home & get your daily ' %}<br/>{% trans ' needs from our shop' %}
                             </h2>
-                            <p class="mb-45">Start You'r Daily Shopping with <span class="text-brand">Nest Mart</span>
+                            <p class="mb-45">{% trans 'Start Your Daily Shopping with ' %}<span class="text-brand">LHQ Shop</span>
                             </p>
                             <form class="form-subcriber d-flex">
                                 <input type="email" placeholder="Your emaill address"/>
