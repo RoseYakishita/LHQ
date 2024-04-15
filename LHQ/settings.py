@@ -2,6 +2,10 @@ from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 import os
 
+from environs import Env
+env = Env()
+env.read_env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -18,6 +22,7 @@ ALLOWED_HOSTS = ['.up.railway.app', 'localhost', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [
     'https://*.up.railway.app',
 ]
+SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
 SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_DOMAIN = None
 
@@ -38,8 +43,6 @@ INSTALLED_APPS = [
     'taggit',
     'django_ckeditor_5',
     'paypal.standard.ipn',
-    'django.core.paginator'
-
 ]
 
 MIDDLEWARE = [
@@ -316,6 +319,9 @@ CKEDITOR_5_CONFIGS = {
         },
     },
 }
+
+STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
+STRIPE_PUBLIC_KEY = env("STRIPE_PUBLIC_KEY")
 
 PAYPAL_RECEIVER_EMAIL = 'anson33213@gmail.com'
 PAYPAL_TEST = True

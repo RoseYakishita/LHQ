@@ -4,7 +4,7 @@ from django.utils.html import mark_safe
 from userauths.models import User
 from taggit.managers import TaggableManager
 from django_ckeditor_5.fields import CKEditor5Field
-
+from django.utils import timezone
 
 STATUS_CHOICE = (
     ("processing", "Processing"),
@@ -38,7 +38,7 @@ def user_directory_path(instance, filename):
 class Category(models.Model):
     cid = ShortUUIDField(unique=True, length=10, max_length=20,
                          prefix="cat", alphabet="abcdefgh12345")
-    title = models.CharField(max_length=100, default="Table")
+    title = models.CharField(max_length=100, default="Food")
     image = models.ImageField(upload_to="category", default="category.jpg")
 
     class Meta:
@@ -62,13 +62,13 @@ class Vendor(models.Model):
     vid = ShortUUIDField(unique=True, length=10, max_length=20,
                          prefix="ven", alphabet="abcdefgh12345")
 
-    title = models.CharField(max_length=100, default="LHQ")
+    title = models.CharField(max_length=100, default="Nestify")
     image = models.ImageField(
         upload_to=user_directory_path, default="vendor.jpg")
     cover_image = models.ImageField(
         upload_to=user_directory_path, default="vendor.jpg")
-    description = models.TextField(null=True, blank=True, default="I am am Amazing Vendor")
-    # description = CKEditor5Field(config_name='extends', null=True, blank=True)
+    # description = models.TextField(null=True, blank=True, default="I am am Amazing Vendor")
+    description = CKEditor5Field(config_name='extends', null=True, blank=True)
 
     address = models.CharField(max_length=100, default="123 Main Street.")
     contact = models.CharField(max_length=100, default="+123 (456) 789")
@@ -108,9 +108,9 @@ class Product(models.Model):
     description = CKEditor5Field(config_name='extends', null=True, blank=True)
 
     price = models.DecimalField(
-        max_digits=99999999999999, decimal_places=2, default="1.99")
+        max_digits=12, decimal_places=2, default="0.00")
     old_price = models.DecimalField(
-        max_digits=99999999999999, decimal_places=2, default="2.99")
+        max_digits=12, decimal_places=2, default="2.99")
 
     specifications = CKEditor5Field(config_name='extends', null=True, blank=True)
     # specifications = models.TextField(null=True, blank=True)
@@ -173,14 +173,31 @@ class ProductImages(models.Model):
 
 class CartOrder(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    price = models.DecimalField(
-        max_digits=99999999999999, decimal_places=2, default="1.99")
-    paid_status = models.BooleanField(default=False, null=True, blank=True)
+    full_name = models.CharField(max_length=100, null=True, blank=True)
+    email = models.CharField(max_length=100, null=True, blank=True)
+    phone = models.CharField(max_length=100, null=True, blank=True)
+
+    address = models.CharField(max_length=100, null=True, blank=True)
+    city = models.CharField(max_length=100, null=True, blank=True)
+    state = models.CharField(max_length=100, null=True, blank=True)
+    country = models.CharField(max_length=100, null=True, blank=True)
+
+    price = models.DecimalField(max_digits=12, decimal_places=2, default="0.00")
+    saved = models.DecimalField(max_digits=12, decimal_places=2, default="0.00")
+    coupons = models.ManyToManyField("core.Coupon", blank=True)
+
+    shipping_method = models.CharField(max_length=100, null=True, blank=True)
+    tracking_id = models.CharField(max_length=100, null=True, blank=True)
+    tracking_website_address = models.CharField(max_length=100, null=True, blank=True)
+
+
+    paid_status = models.BooleanField(default=False)
     order_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    product_status = models.CharField(
-        choices=STATUS_CHOICE, max_length=30, default="processing")
-    sku = ShortUUIDField(null=True, blank=True, length=5,
-                         prefix="SKU", max_length=20, alphabet="abcdefgh12345")
+    product_status = models.CharField(choices=STATUS_CHOICE, max_length=30, default="processing")
+    sku = ShortUUIDField(null=True, blank=True, length=5,prefix="SKU", max_length=20, alphabet="1234567890")
+    oid = ShortUUIDField(null=True, blank=True, length=8, max_length=20, alphabet="1234567890")
+    stripe_payment_intent = models.CharField(max_length=1000, null=True, blank=True)
+    date = models.DateTimeField(default=timezone.now, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = "Cart Order"
@@ -193,10 +210,8 @@ class CartOrderProducts(models.Model):
     item = models.CharField(max_length=200)
     image = models.CharField(max_length=200)
     qty = models.IntegerField(default=0)
-    price = models.DecimalField(
-        max_digits=99999999999999, decimal_places=2, default="1.99")
-    total = models.DecimalField(
-        max_digits=99999999999999, decimal_places=2, default="1.99")
+    price = models.DecimalField(max_digits=12, decimal_places=2, default="0.00")
+    total = models.DecimalField(max_digits=12, decimal_places=2, default="0.00")
 
     class Meta:
         verbose_name_plural = "Cart Order Items"
@@ -213,8 +228,7 @@ class CartOrderProducts(models.Model):
 
 class ProductReview(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    product = models.ForeignKey(
-        Product, on_delete=models.SET_NULL, null=True, related_name="reviews")
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, related_name="reviews")
     review = models.TextField()
     rating = models.IntegerField(choices=RATING, default=None)
     date = models.DateTimeField(auto_now_add=True)
@@ -223,7 +237,10 @@ class ProductReview(models.Model):
         verbose_name_plural = "Product Reviews"
 
     def __str__(self):
-        return self.product.title
+        if self.product:
+            return self.product.title
+        else:
+            return f"review - {self.pk}"
 
     def get_rating(self):
         return self.rating
@@ -249,3 +266,12 @@ class Address(models.Model):
 
     class Meta:
         verbose_name_plural = "Address"
+
+
+class Coupon(models.Model):
+    code = models.CharField(max_length=1000)
+    discount = models.IntegerField(default=1)
+    active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.code}"
