@@ -118,7 +118,6 @@ USE_L10N = True
 USE_TZ = True
 LANGUAGES = [
     ('en', 'English'),
-    ('vi', 'Vietnamese'),
 ]
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),

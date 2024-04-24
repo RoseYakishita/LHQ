@@ -139,33 +139,6 @@
                     <div class="header-info header-info-right">
                         <ul>
                             <li>Need help? Call Us: <strong class="text-brand"> + 1800 900</strong></li>
-                            <li>
-                                <a class="language-dropdown-active" href="#"><i class="fa-solid fa-globe"></i><i
-                                        class="fi-rs-angle-small-down"></i></a>
-                                <ul class="language-dropdown">
-                                    <li>
-                                        <a href="/vi/"><img src="{% static 'assets/imgs/theme/flag-vn.png' %}" alt=""/>{% trans "Vietnamese"%}</a>
-                                    </li>
-                                    <li>
-                                        <a href="/en/"><img src="{% static 'assets/imgs/theme/flag-en.png' %}" alt=""/>{% trans "English"%}</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="language-dropdown-active" href="#">USD <i class="fi-rs-angle-small-down"></i></a>
-                                <ul class="language-dropdown">
-                                    <li>
-                                        <a href="#"><img src="{% static 'assets/imgs/theme/flag-fr.png' %}" alt=""/>INR</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="{% static 'assets/imgs/theme/flag-dt.png' %}" alt=""/>MBP</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="{% static 'assets/imgs/theme/flag-ru.png' %}"
-                                                         alt=""/>EU</a>
-                                    </li>
-                                </ul>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -176,8 +149,7 @@
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
-                    <a href="{% url 'core:index' %}"><img src="{% static 'assets/imgs/theme/logo.svg' %}"
-                                                          alt="logo"/></a>
+                    <a href="{% url 'core:index' %}"><img src="{% static 'assets/imgs/theme/logo.svg' %}" alt="logo"/></a>
                 </div>
                 <div class="header-right">
                     <div class="search-style-2">
@@ -224,7 +196,7 @@
                                     <img alt="Nest" src="{% static 'assets/imgs/theme/icons/icon-cart.svg' %}"/>
                                     <span class="pro-count blue cart-items-count">{{ request.session.cart_data_obj|length }}</span>
                                 </a>
-                                <a href="{% url 'core:cart' %}"><span class="lable">{% trans 'Cart' %}</span></a>
+                                <a href="{% url 'core:cart' %}"><span class="lable">Cart</span></a>
 <!--                                <div class="cart-dropdown-wrap cart-dropdown-hm2">-->
 <!--                                    <ul>-->
 <!--                                    {% for product_id, item in cart_data.items %}-->
@@ -344,27 +316,27 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a class="active" href="{% url 'core:index' %}">{% trans 'Home' %}</a>
+                                    <a class="active" href="{% url 'core:index' %}">Home</a>
                                 </li>
                                 <li>
-                                    <a href="#">{% trans 'Category' %}<i class="fi-rs-angle-down"></i></a>
+                                    <a href="#">Category<i class="fi-rs-angle-down"></i></a>
                                     <ul class="sub-menu">
                                         {% for c in categories %}
                                         <li><a href="{% url 'core:category-product-list' c.cid %}">{{c.title}}</a></li>
                                         {% endfor %}
                                         <hr>
-                                        <li><a href="{% url 'core:category-list' %}">{% trans 'All Categories' %}</a>
+                                        <li><a href="{% url 'core:category-list' %}">All Categories</a>
                                         </li>
 
                                     </ul>
                                 </li>
 
                                 <li>
-                                    <a href="{% url 'core:product-list'  %}">{% trans 'Shop' %}</a>
+                                    <a href="{% url 'core:product-list'  %}">Shop</a>
                                 </li>
 
                                 <li>
-                                    <a href="{% url 'core:vendor-list'  %}">{% trans 'Vendors' %}</a>
+                                    <a href="{% url 'core:vendor-list'  %}">Vendors</a>
 
                                 </li>
                                 <li>
@@ -382,7 +354,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="{% url 'core:contact'  %}">{% trans 'Contact' %}</a>
+                                    <a href="{% url 'core:contact'  %}">Contact</a>
                                 </li>
                             </ul>
                         </nav>
@@ -390,7 +362,7 @@
                 </div>
                 <div class="hotline d-none d-lg-flex">
                     <img src="{% static 'assets/imgs/theme/icons/icon-headphone.svg' %}" alt="hotline"/>
-                    <p>1900 - 888<span>24/7 {% trans 'Support Center' %}</span></p>
+                    <p>1900 - 888<span>24/7 Support Center</span></p>
                 </div>
                 <div class="header-action-icon-2 d-block d-lg-none">
                     <div class="burger-icon burger-icon-white">
@@ -660,9 +632,9 @@
                     <div class="position-relative newsletter-inner">
                         <div class="newsletter-content">
                             <h2 class="mb-20">
-                                {% trans 'Stay home & get your daily ' %}<br/>{% trans ' needs from our shop' %}
+                                Stay home & get your daily<br/> needs from our shop
                             </h2>
-                            <p class="mb-45">{% trans 'Start Your Daily Shopping with ' %}<span class="text-brand">LHQ Shop</span>
+                            <p class="mb-45">Start Your Daily Shopping with <span class="text-brand">LHQ Shop</span>
                             </p>
                             <form class="form-subcriber d-flex">
                                 <input type="email" placeholder="Your emaill address"/>
