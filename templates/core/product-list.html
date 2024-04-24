@@ -64,7 +64,7 @@
                                             <li>
                                                 <input  class="form-check-input filter-checkbox" data-filter="category" type="checkbox" name="checkbox" id="exampleCheckbox2" value="{{ c.id }}" />
                                                 &nbsp;&nbsp;
-                                                <a href="{% url 'core:category-product-list' c.cid %}"> <img loading="lazy" src="{{c.image.url}}" alt="" />{{ c.title }}</a>
+                                                <a href="{% url 'core:category-product-list' c.cid %}"> <img src="{{c.image.url}}" alt="" />{{ c.title }}</a>
                                             </li>
                                         </ul>
                                         {% endfor %}
